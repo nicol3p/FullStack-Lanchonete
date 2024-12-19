@@ -6,7 +6,7 @@ export const Order = model('Order', new Schema({
         required: true,
     },
     status: {
-        type: String,
+        type: [String],
         enum: ['WAITING', 'IN_PRODUCTION', 'DONE'], //apenas uma dessas opções
         default: ['WAITING'], //apartir que entar ja estara em andanmento
     },
@@ -17,10 +17,10 @@ export const Order = model('Order', new Schema({
     products: {
         required: true,
         type: [{
-            products: {
+            product: {
                 type: Schema.Types.ObjectId,
                 required: true,
-                ref: 'Products', //relacionamento
+                ref: 'Product', //relacionamento
             }
         }]
     },
