@@ -10,8 +10,9 @@ import { createProducts } from './app/UseCase/Products/createProducts';
 import { listProductsbyCategory } from './app/UseCase/Categories/listProductsbyCategory';
 import { listOrders } from './app/UseCase/Orders/listOrders';
 import { createOrder } from './app/UseCase/Orders/createOrder';
-import { changeOrderStatus } from './app/UseCase/Orders/changeOrderStatus';
 import { cancelOrder } from './app/UseCase/Orders/cancelOrder';
+
+import { changeOrderStatus } from './app/UseCase/Orders/changeOrderStatus';
 
 export const router = Router();
 
