@@ -61,6 +61,8 @@ const upload = multer({
 
     router.patch('/orders/:orderId', changeOrderStatus);
 
+    router.patch('/orders/:orderId/apagar', createCategory);
+
 //delete or cancel
 
     router.delete('/orders/:orderId', cancelOrder);
