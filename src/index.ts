@@ -20,3 +20,4 @@ mongoose.connect('mongodb://localhost:27017')
     .catch(() => console.log('erro ao conectar no mongodb'));
 
 
+//new version sem erro
