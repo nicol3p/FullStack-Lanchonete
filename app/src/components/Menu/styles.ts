@@ -7,7 +7,12 @@ export const Product = styled.View`
 
 `;
 
-export const ProductImage = styled.View`
+export const Image = styled.Image`
+  width: 120px;
+  height: 96px;
+`;
+
+export const ProductImage = styled.Image`
   width: 120px;
   height: 96px;
 `;
