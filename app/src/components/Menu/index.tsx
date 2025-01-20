@@ -1,6 +1,5 @@
 import { FlatList, TouchableOpacity } from "react-native";
 
-import { products } from "../../mocks/products";
 import { Product } from "../../types/Product"
 import { Text } from "../Text";
 import React, { useState } from "react";
@@ -12,9 +11,10 @@ import { ProductModal } from "../ProductModal";
 
 interface MenuProps {
   onAddToCart: (product: Product) => void;
+  products: Product[];
 }
 
-export function Menu({ onAddToCart }: MenuProps) {
+export function Menu({ onAddToCart, products }: MenuProps) {
 
   const [ isModalVisible, setIsModalVisible ] = useState(false);
   const [ selectedProduct, setSelectedProduct] = useState<  null | Product >(null);
