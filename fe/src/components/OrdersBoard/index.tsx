@@ -23,6 +23,7 @@ export function OrdersBoard ({ icon, title, orders }: OrdersBoardProps) { //cons
         setIsModalVisible(false);
         setSelectedOrder(null);
     }
+    
 
     return (
             <Board>

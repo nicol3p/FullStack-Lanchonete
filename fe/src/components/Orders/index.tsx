@@ -1,53 +1,46 @@
+import { useEffect, useState } from 'react';
 import { Order } from '../../types/Order';
 import { OrdersBoard } from '../OrdersBoard';
 import { Container } from './styles';
+import { api } from '../../utils/api';
 
-
-const orders: Order[] = [
-    {
-		"_id": "677bf19f724f9d816e38aa16",
-		"table": "1234",
-		"status": "WAITING",
-		"products": [
-			{
-				"product": {
-					"name": "Pizza quatro queijos",
-					"imagePath": "1734550734185--quatro-queijos.png",
-					"price": 40,
-				},
-                "quantity": 2,
-				"_id": "677bf19f724f9d816e38aa17"
-			},
-			{
-				"product": {
-					"name": "Coca cola lata",
-					"imagePath": "1734551749146--coca-cola.png",
-					"price": 7,
-				},
-                "quantity": 5,
-				"_id": "677bf19f724f9d816e38aa18"
-			}
-		],
-
-	}
-];
 export function Orders() {
+    
+    const [orders, setOrders] = useState<Order[]>([]);
+
+    useEffect(() => {
+        api.get('/orders')
+            .then(({ data }) => {
+                console.log('API Response:', data);
+                setOrders(data);
+            });
+    }, []);
+
+
+    
+      const waiting = orders.filter((order) => order.status === 'WAITING');
+      const inProduction = orders.filter((order) => order.status === 'IN_PRODUCTION');
+      const done = orders.filter((order) => order.status === 'DONE');
+      console.log('Waiting Orders:', waiting);
+      console.log('In Production Orders:', inProduction);
+      console.log('Done Orders:', done);
+    
     return (
         <Container>
             <OrdersBoard
                 icon="⏰"
                 title="Fila de Espera"
-                orders={orders}
+                orders={waiting}
             />
             <OrdersBoard
                 icon="👨‍🍳"
                 title="Em Preparação"
-                orders={[]}
+                orders={inProduction}
             />
             <OrdersBoard
                 icon="✅"
                 title="Pronto !!"
-                orders={[]}
+                orders={done}
             />
         </Container>
  
