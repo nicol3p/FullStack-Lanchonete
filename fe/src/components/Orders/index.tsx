@@ -17,10 +17,10 @@ export function Orders() {
     }, []);
 
 
-    
-      const waiting = orders.filter((order) => order.status === 'WAITING');
-      const inProduction = orders.filter((order) => order.status === 'IN_PRODUCTION');
-      const done = orders.filter((order) => order.status === 'DONE');
+    //nao pode 3 iogaol e nem identar do meu jeito
+      const waiting = orders.filter((order) => order.status == 'WAITING');
+      const inProduction = orders.filter((order) => order.status == 'IN_PRODUCTION');
+      const done = orders.filter((order) => order.status == 'DONE');
       console.log('Waiting Orders:', waiting);
       console.log('In Production Orders:', inProduction);
       console.log('Done Orders:', done);
