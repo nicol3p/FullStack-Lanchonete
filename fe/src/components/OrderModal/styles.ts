@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Overlay = styled.div`
+    position: absolute;
     left: 0px;
     right: 0px;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(4.5px);
     width: 100%;
     height: 100%;
-    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +15,7 @@ export const Overlay = styled.div`
 
 export const ModalBody = styled.div`
     background: #fff;
-    width: 480px;
+    min-width: 480px;
     border-radius: 8px;
     padding: 32px;
 
@@ -35,7 +35,7 @@ export const ModalBody = styled.div`
         background: transparent;
     }
 
-    .status-container {
+    >.status-container {
         margin-top: 32px;
         
 
@@ -124,6 +124,11 @@ export const Actions = styled.footer`
     display: flex;
     flex-direction: column;
     margin-top: 32px;
+
+    button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 
     .primary {
         min-height: 40px;
